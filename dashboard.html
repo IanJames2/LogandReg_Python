@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Add A Movie</title>
+</head>
+<body>
+    
+        {%  for message in messages %}
+        <p style="color:red">{{ message }}</p>
+        {% endfor %}
+
+        <form action="/movie_added" method="POST">
+            {% csrf_token %}
+            <h1> Success! Welcome, {{ User_ID.first_name }} </h1>
+            <div>
+                <label>Title</label>
+                <input type="text" name="title" />
+            </div>
+            <div>
+                <label>Description</label>
+                <input type="text" name="description" />
+            </div>
+            <div>
+                <label>Year</label>
+                <input type="number" name="year" />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="/">Log Out</a>
+    </body>
+</html>
+
+
